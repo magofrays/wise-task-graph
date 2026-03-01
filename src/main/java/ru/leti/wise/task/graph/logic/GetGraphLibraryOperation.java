@@ -15,7 +15,7 @@ public class GetGraphLibraryOperation {
     private final GraphMapper graphMapper;
 
     public Mono<GetGraphLibraryResponse> activate() {
-        return graphRepository.findAllByIsNamedIsTrue()
+        return graphRepository.findAll()
                 .collectList()
                 .map(graphs -> GetGraphLibraryResponse.newBuilder()
                         .addAllGraphList(graphMapper.toGraphs(graphs))
