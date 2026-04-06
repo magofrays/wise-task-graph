@@ -8,9 +8,6 @@ RUN USERNAME=$USERNAME TOKEN=$TOKEN gradle build --no-daemon --stacktrace
 
 FROM eclipse-temurin:17-jre
 
-EXPOSE 6565
-EXPOSE 8080
-
 RUN mkdir /app
 
 COPY --from=build /src/build/libs/wise-task-graph-1.0.0.jar /app/app.jar
